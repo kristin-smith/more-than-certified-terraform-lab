@@ -1,0 +1,209 @@
+{
+  "version": 4,
+  "terraform_version": "0.14.0",
+  "serial": 99,
+  "lineage": "db2d51e8-1ea2-02ba-6938-441055e9bdf1",
+  "outputs": {},
+  "resources": [
+    {
+      "mode": "managed",
+      "type": "docker_container",
+      "name": "nodered_container",
+      "provider": "provider[\"registry.terraform.io/kreuzwerker/docker\"]",
+      "instances": [
+        {
+          "index_key": 0,
+          "schema_version": 2,
+          "attributes": {
+            "attach": false,
+            "bridge": "",
+            "capabilities": [],
+            "command": [],
+            "container_logs": null,
+            "cpu_set": "",
+            "cpu_shares": 0,
+            "destroy_grace_seconds": null,
+            "devices": [],
+            "dns": null,
+            "dns_opts": null,
+            "dns_search": null,
+            "domainname": "",
+            "entrypoint": [
+              "npm",
+              "--no-update-notifier",
+              "--no-fund",
+              "start",
+              "--cache",
+              "/data/.npm",
+              "--",
+              "--userDir",
+              "/data"
+            ],
+            "env": [],
+            "exit_code": null,
+            "gateway": "172.17.0.1",
+            "group_add": null,
+            "healthcheck": [
+              {
+                "interval": "0s",
+                "retries": 0,
+                "start_period": "0s",
+                "test": [
+                  "CMD-SHELL",
+                  "node /healthcheck.js"
+                ],
+                "timeout": "0s"
+              }
+            ],
+            "host": [],
+            "hostname": "244e374485ad",
+            "id": "244e374485ad6415762e5f2b2004f210095bbcbb23e6d6b055329a842aec74b2",
+            "image": "sha256:c060f9cb7fd5a4375549f954c0bfac42107094f879a33ab27118749206c42bb0",
+            "init": false,
+            "ip_address": "172.17.0.2",
+            "ip_prefix_length": 16,
+            "ipc_mode": "private",
+            "labels": [],
+            "links": null,
+            "log_driver": "json-file",
+            "log_opts": null,
+            "logs": false,
+            "max_retry_count": 0,
+            "memory": 0,
+            "memory_swap": 0,
+            "mounts": [],
+            "must_run": true,
+            "name": "nodered-bkwm",
+            "network_alias": null,
+            "network_data": [
+              {
+                "gateway": "172.17.0.1",
+                "global_ipv6_address": "",
+                "global_ipv6_prefix_length": 0,
+                "ip_address": "172.17.0.2",
+                "ip_prefix_length": 16,
+                "ipv6_gateway": "",
+                "network_name": "bridge"
+              }
+            ],
+            "network_mode": "default",
+            "networks": null,
+            "networks_advanced": [],
+            "pid_mode": "",
+            "ports": [
+              {
+                "external": 3749,
+                "internal": 1880,
+                "ip": "0.0.0.0",
+                "protocol": "tcp"
+              }
+            ],
+            "privileged": false,
+            "publish_all_ports": false,
+            "read_only": false,
+            "remove_volumes": true,
+            "restart": "no",
+            "rm": false,
+            "security_opts": [],
+            "shm_size": 64,
+            "start": true,
+            "stdin_open": false,
+            "sysctls": null,
+            "tmpfs": null,
+            "tty": false,
+            "ulimit": [],
+            "upload": [],
+            "user": "node-red",
+            "userns_mode": "",
+            "volumes": [
+              {
+                "container_path": "/data",
+                "from_container": "",
+                "host_path": "/Users/kristinsmith/Documents/mtc-terraform-lab/terraform-docker/node_red_data",
+                "read_only": null,
+                "volume_name": ""
+              }
+            ],
+            "working_dir": "/usr/src/node-red"
+          },
+          "sensitive_attributes": []
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "docker_image",
+      "name": "node-red_image",
+      "provider": "provider[\"registry.terraform.io/kreuzwerker/docker\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "build": [],
+            "force_remove": null,
+            "id": "sha256:c060f9cb7fd5a4375549f954c0bfac42107094f879a33ab27118749206c42bb0nodered/node-red:latest",
+            "keep_locally": null,
+            "latest": "sha256:c060f9cb7fd5a4375549f954c0bfac42107094f879a33ab27118749206c42bb0",
+            "name": "nodered/node-red:latest",
+            "output": null,
+            "pull_trigger": null,
+            "pull_triggers": null
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "random_integer",
+      "name": "ext-port",
+      "provider": "provider[\"registry.terraform.io/hashicorp/random\"]",
+      "instances": [
+        {
+          "index_key": 0,
+          "schema_version": 0,
+          "attributes": {
+            "id": "3749",
+            "keepers": null,
+            "max": 6535,
+            "min": 1,
+            "result": 3749,
+            "seed": null
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "random_string",
+      "name": "random",
+      "provider": "provider[\"registry.terraform.io/hashicorp/random\"]",
+      "instances": [
+        {
+          "index_key": 0,
+          "schema_version": 1,
+          "attributes": {
+            "id": "bkwm",
+            "keepers": null,
+            "length": 4,
+            "lower": true,
+            "min_lower": 0,
+            "min_numeric": 0,
+            "min_special": 0,
+            "min_upper": 0,
+            "number": true,
+            "override_special": null,
+            "result": "bkwm",
+            "special": false,
+            "upper": false
+          },
+          "sensitive_attributes": [],
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ=="
+        }
+      ]
+    }
+  ]
+}
