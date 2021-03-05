@@ -22,15 +22,15 @@ variable "image" {
 variable "ext_port" {
   type = map
 
-  validation {
-    condition = max(var.ext_port["dev"]...) <= 1999 && min(var.ext_port["dev"]...) > 1900
-    error_message = "Exp port must be between 1900 and 1999."
-  }
-
-  validation {
-    condition = max(var.ext_port["prod"]...) <= 1899 && min(var.ext_port["prod"]...) > 1800
-    error_message = "Production external port must be between 1800 and 1899."
-  }
+//  validation {
+//    condition = max(var.ext_port["dev"]...) <= 1999 && min(var.ext_port["dev"]...) > 1900
+//    error_message = "Exp port must be between 1900 and 1999."
+//  }
+//
+//  validation {
+//    condition = max(var.ext_port["prod"]...) <= 1899 && min(var.ext_port["prod"]...) > 1800
+//    error_message = "Production external port must be between 1800 and 1899."
+//  }
 }
 
 variable "int_port" {
@@ -43,6 +43,3 @@ variable "int_port" {
   }
 }
 
-locals {
-    container_count = length(var.ext_port[terraform.workspace])
-}
