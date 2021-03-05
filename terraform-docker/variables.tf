@@ -8,25 +8,19 @@ variable "image" {
   type = map
   description = "Node-RED docker image to deploy"
   default = {
-    dev = "nodered/node-red:latest"
-    prod = "nodered/node-red:latest-minimal"
+    nodered = {
+      dev = "nodered/node-red:latest"
+      prod = "nodered/node-red:latest-minimal"
+    }
+    influxdb = {
+      dev = "quay.io/influxdb/influxdb:v2.0.2"
+      prod = "quay.io/influxdb/influxdb:v2.0.2"
+    }
   }
 }
 
 variable "ext_port" {
   type = map
-  //default = 1880
-
-  //commenting out to play with local values
-  //validation {
-  //  condition = var.ext_port <= 65535 && var.ext_port > 0
-  //  error_message = "Exp port must be between 0 and 65535."
-  //}
-
-  //validation {
-  //  condition = max(var.ext_port...) <= 65535 && min(var.ext_port...) > 0
-  //  error_message = "Exp port must be between 0 and 65535."
-  //}
 
   validation {
     condition = max(var.ext_port["dev"]...) <= 1999 && min(var.ext_port["dev"]...) > 1900
@@ -48,12 +42,6 @@ variable "int_port" {
     error_message = "Internal port must be port 1880."
   }
 }
-
-//commenting out to play with local values
-//variable "container_count" {
-//    type = number
-//    default = 4
-//}
 
 locals {
     container_count = length(var.ext_port[terraform.workspace])
